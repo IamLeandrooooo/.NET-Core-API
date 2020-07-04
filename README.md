@@ -6,7 +6,7 @@ Dependency Injection;
 
 Repository and an Interface to implement the Repo Methods;
 
-A Mock Repository that works as dummy data so we can make tests without having to connect to a real Data Source;
+A Mock Repository that has as dummy data so we can make tests without having to connect to a real Data Source;
 
 Data Transfer Objects and the mapper library to map them;
 
