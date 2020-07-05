@@ -15,3 +15,5 @@ Entity Framework Core as our ORM;
 Local SQL Server Database where we can store and manipulate our data.
 
 Added Swagger.UI to the solution
+
+Added SonarQube Library to Scan the application. (You need to create a Docker SonarQube Image to be able to check this)
