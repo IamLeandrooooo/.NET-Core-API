@@ -13,3 +13,5 @@ Data Transfer Objects and the mapper library to map them;
 Entity Framework Core as our ORM;
 
 Local SQL Server Database where we can store and manipulate our data.
+
+Added Swagger.UI to the solution
