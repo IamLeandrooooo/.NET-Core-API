@@ -1,3 +1,5 @@
+[![Build status](https://dev.azure.com/lynyleandro/LeandroWebAPI/_apis/build/status/LeandroWebAPI-.NET%20Core%20with%20SonarCloud-CI)](https://dev.azure.com/lynyleandro/LeandroWebAPI/_build/latest?definitionId=2)
+
 .NET CORE API that contains the following:
 
 POST, GET, PUT, PATCH AND DELETE VERBS;
@@ -17,3 +19,4 @@ Local SQL Server Database where we can store and manipulate our data.
 Added Swagger.UI to the solution
 
 Added SonarQube Library to Scan the application. (You need to create a Docker SonarQube Image to be able to check this)
+
