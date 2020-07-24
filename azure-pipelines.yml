@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  demands: java
+  image: 'ubuntu-latest'
 
 steps:
 - task: NodeTool@0
@@ -11,16 +11,19 @@ steps:
   displayName: 'Install Node.js'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet run'
   inputs:
-    command: run
+    command: 'run'
+    projects: '**/*'
     arguments: 'dotnet tool install --global CycloneDX'
-   
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet run'
-  inputs:
-    command: run
-    arguments: 'dotnet CycloneDX **/*.csproj -o $(Agent.TempDirectory)/bom.xml'
+
+- script: |
+    npm install
+    npm install -g @cyclonedx/bom
+  displayName: 'npm install'
+
+- script: |
+    cyclonedx-bom -d -o '$(Agent.TempDirectory)/bom.xml'
+  displayName: 'Create BOM'
 
 - task: upload-bom-dtrack-task@1
   displayName: 'Upload BOM to https://dependencycontainer.azurewebsites.net'
