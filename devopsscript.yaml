@@ -42,7 +42,7 @@ steps:
   displayName: 'Upload BOM to https://dependencycontainer.azurewebsites.net'
   inputs:
     bomFilePath: '$(Agent.TempDirectory)/bom.xml'
-    dtrackProjId: '00000000-0000-0000-0000-000000000000'
+    dtrackProjId: '36457785-a9dd-4c8a-9114-6bca326ad8b8'
     dtrackAPIKey: 'XWrSuI25ZcE2ypwx9E7coeMuOwdKeijt'
     dtrackURI: 'https://dependencycontainer.azurewebsites.net/'
 
