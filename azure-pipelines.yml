@@ -1,34 +1,28 @@
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
-
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  image: 'ubuntu-latest'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: NodeTool@0
   inputs:
-    restoreSolution: '$(solution)'
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+- script: |
+    npm install
+    npm install -g @cyclonedx/bom
+  displayName: 'npm install'
 
-- task: VSTest@2
+- script: |
+    cyclonedx-bom **/*.csproj -o '$(Agent.TempDirectory)/bom.xml'
+  displayName: 'Create BOM'
+
+- task: upload-bom-dtrack-task@1
+  displayName: 'Upload BOM to https://dependencycontainer.azurewebsites.net'
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    bomFilePath: '$(Agent.TempDirectory)/bom.xml'
+    dtrackProjId: '36457785-a9dd-4c8a-9114-6bca326ad8b8'
+    dtrackAPIKey: 'XWrSuI25ZcE2ypwx9E7coeMuOwdKeijt'
+    dtrackURI: 'https://dependencycontainer.azurewebsites.net/'
