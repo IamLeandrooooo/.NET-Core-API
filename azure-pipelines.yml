@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  image: 'ubuntu-latest'
+  demands: java
 
 steps:
 - task: NodeTool@0
