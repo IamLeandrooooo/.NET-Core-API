@@ -8,7 +8,7 @@ steps:
 
 - script: |
     dotnet tool install --global CycloneDX
-    cyclonedx-bom **/*.csproj -o '$(Agent.TempDirectory)/bom.xml'
+    dotnet CycloneDX **/*.csproj -o '$(Agent.TempDirectory)/bom.xml'
 
 
 - task: upload-bom-dtrack-task@1
