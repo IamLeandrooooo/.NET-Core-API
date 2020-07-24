@@ -16,7 +16,7 @@ steps:
   displayName: 'npm install'
 
 - script: |
-    cyclonedx-bom **/*.csproj -o '$(Agent.TempDirectory)/bom.xml'
+    cyclonedx-bom -d -o '$(Agent.TempDirectory)/bom.xml'
   displayName: 'Create BOM'
 
 - task: upload-bom-dtrack-task@1
