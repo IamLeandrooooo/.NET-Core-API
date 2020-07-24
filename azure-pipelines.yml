@@ -3,8 +3,15 @@ trigger:
 
 pool:
   image: 'ubuntu-latest'
+  demands: java
 
 steps:
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '$(Parameters.RestoreBuildProjects)'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -16,7 +23,7 @@ steps:
   displayName: 'npm install'
 
 - script: |
-    cyclonedx-bom **\*.csproj -o '$(Agent.TempDirectory)/bom.xml'
+    cyclonedx-bom -d -o '$(Agent.TempDirectory)/bom.xml'
   displayName: 'Create BOM'
 
 - task: upload-bom-dtrack-task@1
@@ -26,3 +33,16 @@ steps:
     dtrackProjId: '36457785-a9dd-4c8a-9114-6bca326ad8b8'
     dtrackAPIKey: 'XWrSuI25ZcE2ypwx9E7coeMuOwdKeijt'
     dtrackURI: 'https://dependencycontainer.azurewebsites.net/'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: '$(Parameters.RestoreBuildProjects)'
+    arguments: '--configuration $(BuildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: test
+    projects: '$(Parameters.TestProjects)'
+    arguments: '--configuration $(BuildConfiguration)'
