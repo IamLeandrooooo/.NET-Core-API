@@ -8,13 +8,13 @@ steps:
 
 - script: |
     dotnet tool install --global CycloneDX
-    dotnet CycloneDX d:\a\1\s\Commander\Commander.csproj -o d:\bom.xml
+    dotnet CycloneDX d:\a\1\s\Commander\Commander.csproj -o d:\file.bom
 
 
 - task: upload-bom-dtrack-task@1
   displayName: 'Upload BOM to https://dependencycontainer.azurewebsites.net'
   inputs:
-    bomFilePath: 'd:\bom.xml'
+    bomFilePath: 'd:\file.bom'
     dtrackProjId: '36457785-a9dd-4c8a-9114-6bca326ad8b8'
     dtrackAPIKey: 'XWrSuI25ZcE2ypwx9E7coeMuOwdKeijt'
     dtrackURI: 'https://dependencycontainer.azurewebsites.net/'
