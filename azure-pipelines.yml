@@ -21,7 +21,12 @@ steps:
   inputs:
    command: 'custom'
    custom: 'CycloneDX'
-   arguments: '$(Build.Repository.LocalPath)/Commander/Commander.csproj -o $(Agent.TempDirectory)/bom.xml'
+   arguments: '-d $(Build.Repository.LocalPath)/Commander/Commander.csproj -o $(Agent.TempDirectory)/bom.xml'
+
+- task: Bash@3
+  inputs:
+   targetType: 'inline'
+   script: echo $(Agent.TempDirectory)/
 
 
 
