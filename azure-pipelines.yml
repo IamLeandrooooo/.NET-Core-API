@@ -20,7 +20,7 @@ steps:
   inputs:
    command: 'custom'
    custom: 'ls'
-   arguments: '$(Build.Repository.LocalPath)'
+   arguments: '-d $(Build.Repository.LocalPath)/Commander/Commander.csproj -o $(Agent.TempDirectory)/bom.xml'
 
 
 
