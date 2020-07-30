@@ -23,13 +23,6 @@ steps:
    custom: 'CycloneDX'
    arguments: '-d $(Build.Repository.LocalPath)/Commander/Commander.csproj -o $(Agent.TempDirectory)'
 
-- task: Bash@3
-  inputs:
-   targetType: 'inline'
-   script: echo $(Agent.TempDirectory)/
-
-
-
 - task: upload-bom-dtrack-task@1
   displayName: 'Upload BOM to https://dependencycontainer.azurewebsites.net'
   inputs:
