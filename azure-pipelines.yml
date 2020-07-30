@@ -20,7 +20,7 @@ steps:
   inputs:
    command: 'custom'
    custom: 'CycloneDX'
-   arguments: '-d d:\a\1\s\Commander\Commander.csproj -o $(Agent.TempDirectory)/bom.xml'
+   arguments: '-d $(Build.Repository.LocalPath)/Commander/Commander.csproj -o $(Agent.TempDirectory)/bom.xml'
 
 
 
