@@ -19,7 +19,7 @@ steps:
   displayName: Create BOM File
   inputs:
    command: 'custom'
-   custom: 'ls'
+   custom: 'CycloneDX'
    arguments: '-d $(Build.Repository.LocalPath)/Commander/Commander.csproj -o $(Agent.TempDirectory)/bom.xml'
 
 
