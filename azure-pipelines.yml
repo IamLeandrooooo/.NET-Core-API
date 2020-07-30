@@ -14,7 +14,7 @@ steps:
 - task: upload-bom-dtrack-task@1
   displayName: 'Upload BOM to https://dependencycontainer.azurewebsites.net'
   inputs:
-    bomFilePath: 'd:\file.bom'
+    bomFilePath: 'd:\file.bom\bom.xml'
     dtrackProjId: '36457785-a9dd-4c8a-9114-6bca326ad8b8'
     dtrackAPIKey: 'XWrSuI25ZcE2ypwx9E7coeMuOwdKeijt'
     dtrackURI: 'https://dependencycontainer.azurewebsites.net/'
