@@ -9,17 +9,13 @@ steps:
 - task: UseDotNet@2
   inputs:
     version: '3.1.200'
-- task: UseDotNet@2
+- task: DotNetCoreCLI@2
   displayName: Install CycloneDX
   inputs:
     command: 'custom'
     custom: 'tool'
     arguments: 'install --global CycloneDX'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: ls $(Build.Repository.LocalPath)/Commander/
 - task: DotNetCoreCLI@2
   displayName: Create BOM File
   inputs:
