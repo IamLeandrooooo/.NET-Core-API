@@ -19,13 +19,13 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: ls $(Build.Repository.LocalPath)/Commander/   
+    script: ls $(Build.Repository.LocalPath)/Commander/
 - task: DotNetCoreCLI@2
   displayName: Create BOM File
   inputs:
    command: 'custom'
-   custom: 'CycloneDX'
-   arguments: '-d $(Build.Repository.LocalPath)/Commander/Commander.csproj -o $(Agent.TempDirectory)/bom.xml'
+   custom: 'tool'
+   arguments: 'CycloneDX -d $(Build.Repository.LocalPath)/Commander/Commander.csproj -o $(Agent.TempDirectory)/bom.xml'
 
 
 
