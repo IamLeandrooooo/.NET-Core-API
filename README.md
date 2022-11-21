@@ -4,9 +4,9 @@
 
 ### .NET CORE API that contains the following:
 
-*POST, GET, PUT, PATCH AND DELETE VERBS;
+* POST, GET, PUT, PATCH AND DELETE VERBS;
 
-*Dependency Injection;
+* Dependency Injection;
 
 *Repository and an Interface to implement the Repo Methods;
 
