@@ -2,7 +2,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=projectkeyazure&metric=alert_status)](https://sonarcloud.io/dashboard?id=projectkeyazure)
 
 
-###.NET CORE API that contains the following:
+### .NET CORE API that contains the following:
 
 *POST, GET, PUT, PATCH AND DELETE VERBS;
 
