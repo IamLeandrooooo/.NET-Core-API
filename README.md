@@ -8,17 +8,17 @@
 
 * Dependency Injection;
 
-*Repository and an Interface to implement the Repo Methods;
+* Repository and an Interface to implement the Repo Methods;
 
-*A Mock Repository that has as dummy data so we can make tests without having to connect to a real Data Source;
+* A Mock Repository that has as dummy data so we can make tests without having to connect to a real Data Source;
 
-*Data Transfer Objects and the mapper library to map them;
+* Data Transfer Objects and the mapper library to map them;
 
-*Entity Framework Core as our ORM;
+* Entity Framework Core as our ORM;
 
-*Local SQL Server Database where we can store and manipulate our data.
+* Local SQL Server Database where we can store and manipulate our data.
 
-*Added Swagger.UI to the solution
+* Added Swagger.UI to the solution
 
-*Added SonarQube Library to Scan the application. (You need to create a Docker SonarQube Image to be able to check this)
+* Added SonarQube Library to Scan the application. (You need to create a Docker SonarQube Image to be able to check this)
 
